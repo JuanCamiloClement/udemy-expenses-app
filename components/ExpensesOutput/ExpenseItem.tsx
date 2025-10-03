@@ -6,6 +6,7 @@ import { GlobalStyles } from '../../constants/styles';
 import { getFormattedDate } from '../../utils/date';
 
 type ExpenseItemProps = {
+  id: string;
   description: string;
   date: Date;
   amount: number;
@@ -54,10 +55,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export const ExpenseItem = ({ description, date, amount }: ExpenseItemProps) => {
+export const ExpenseItem = ({ id, description, date, amount }: ExpenseItemProps) => {
   const navigation = useNavigation<UseNavigationProp>();
   const handlePress = () => {
-    navigation.navigate('ManageExpense');
+    navigation.navigate('ManageExpense', { expenseId: id });
   };
 
   return (

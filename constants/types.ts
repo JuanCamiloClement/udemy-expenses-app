@@ -2,7 +2,7 @@ import { NativeStackScreenProps, NativeStackNavigationProp } from '@react-naviga
 
 export type StackParamList = {
   BottomTab: undefined;
-  ManageExpense: undefined;
+  ManageExpense?: { expenseId?: string };
 };
 
 export type ManageExpenseScreenProps = NativeStackScreenProps<StackParamList, 'ManageExpense'>;
