@@ -1,5 +1,7 @@
 import { ExpensesOutput } from '../components/ExpensesOutput/ExpensesOutput';
+import { useExpensesContext } from '../hooks/useExpensesContext';
 
 export const AllExpensesScreen = () => {
-  return <ExpensesOutput expensesPeriod="Total" />;
+  const { expenses } = useExpensesContext();
+  return <ExpensesOutput expensesPeriod="Total" expenses={expenses} />;
 };

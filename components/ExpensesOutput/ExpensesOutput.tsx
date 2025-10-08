@@ -7,7 +7,7 @@ import { GlobalStyles } from '../../constants/styles';
 import { DUMMY_EXPENSES } from '../../constants/data';
 
 type ExpensesOutputProps = {
-  expenses?: Expense[];
+  expenses: Expense[];
   expensesPeriod: string;
 };
 
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const ExpensesOutput = ({ expenses = DUMMY_EXPENSES, expensesPeriod }: ExpensesOutputProps) => {
+export const ExpensesOutput = ({ expenses, expensesPeriod }: ExpensesOutputProps) => {
   return (
     <View style={styles.container}>
       <ExpensesSummary expenses={expenses} expensesPeriod={expensesPeriod} />
