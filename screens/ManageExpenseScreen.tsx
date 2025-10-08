@@ -5,6 +5,7 @@ import { ManageExpenseScreenProps } from '../constants/types';
 import { IconButton } from '../components/UI/IconButton';
 import { GlobalStyles } from '../constants/styles';
 import { Button } from '../components/UI/Button';
+import { useExpensesContext } from '../hooks/useExpensesContext';
 
 const styles = StyleSheet.create({
   root: {
@@ -31,17 +32,25 @@ const styles = StyleSheet.create({
 });
 
 export const ManageExpenseScreen = ({ navigation, route }: ManageExpenseScreenProps) => {
-  const isEditing = !!route.params?.expenseId;
+  const { addExpense, deleteExpense, updateExpense } = useExpensesContext();
+  const expenseId = route.params?.expenseId;
+  const isEditing = !!expenseId;
 
   const handleCancel = () => {
     navigation.goBack();
   };
 
   const handleConfirm = () => {
+    if (isEditing) {
+      updateExpense(expenseId, { description: 'Test', amount: 19.99, date: new Date() });
+    } else {
+      addExpense({ description: 'Test', amount: 19.99, date: new Date() });
+    }
     navigation.goBack();
   };
 
   const handleDelete = () => {
+    deleteExpense(expenseId as string);
     navigation.goBack();
   };
 

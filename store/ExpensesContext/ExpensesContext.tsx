@@ -2,11 +2,13 @@ import { createContext } from 'react';
 
 import type { Expense } from '../../constants/types';
 
+export type ExpenseData = Omit<Expense, 'id'>;
+
 type ExpensesContextProps = {
   expenses: Expense[];
-  addExpense: (expense: Expense) => void;
+  addExpense: (expense: ExpenseData) => void;
   deleteExpense: (id: string) => void;
-  updateExpense: (id: string, expense: Expense) => void;
+  updateExpense: (id: string, expense: ExpenseData) => void;
 };
 
 export const ExpensesContext = createContext<ExpensesContextProps>({

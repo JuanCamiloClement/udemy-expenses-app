@@ -1,10 +1,8 @@
 import { useReducer } from 'react';
 
-import { ExpensesContext } from './ExpensesContext';
+import { ExpensesContext, ExpenseData } from './ExpensesContext';
 import type { Expense } from '../../constants/types';
 import { DUMMY_EXPENSES } from '../../constants/data';
-
-type ExpenseData = Omit<Expense, 'id'>;
 
 type Action = {
   type: 'ADD' | 'DELETE' | 'UPDATE';
