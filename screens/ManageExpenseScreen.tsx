@@ -1,11 +1,12 @@
 import { useLayoutEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TextInput } from 'react-native';
 
 import { ManageExpenseScreenProps } from '../constants/types';
 import { IconButton } from '../components/UI/IconButton';
 import { GlobalStyles } from '../constants/styles';
 import { Button } from '../components/UI/Button';
 import { useExpensesContext } from '../hooks/useExpensesContext';
+import { ExpenseForm } from '../components/ManageExpense/ExpenseForm';
 
 const styles = StyleSheet.create({
   root: {
@@ -62,6 +63,7 @@ export const ManageExpenseScreen = ({ navigation, route }: ManageExpenseScreenPr
 
   return (
     <View style={styles.root}>
+      <ExpenseForm />
       <View style={styles.actionButtonsContainer}>
         <Button mode="flat" onPress={handleCancel} style={styles.actionButton}>
           Cancel
