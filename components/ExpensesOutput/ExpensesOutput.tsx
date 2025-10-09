@@ -9,6 +9,7 @@ import { DUMMY_EXPENSES } from '../../constants/data';
 type ExpensesOutputProps = {
   expenses: Expense[];
   expensesPeriod: string;
+  fallbackText: string;
 };
 
 const styles = StyleSheet.create({
@@ -20,11 +21,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export const ExpensesOutput = ({ expenses, expensesPeriod }: ExpensesOutputProps) => {
+export const ExpensesOutput = ({ expenses, expensesPeriod, fallbackText }: ExpensesOutputProps) => {
   return (
     <View style={styles.container}>
       <ExpensesSummary expenses={expenses} expensesPeriod={expensesPeriod} />
-      <ExpensesList expenses={expenses} />
+      <ExpensesList expenses={expenses} fallbackText={fallbackText} />
     </View>
   );
 };

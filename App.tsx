@@ -7,7 +7,7 @@ import { ExpensesProvider } from './store/ExpensesContext/ExpensesProvider';
 export default function App() {
   return (
     <>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <ExpensesProvider>
         <NavigationContainer>
           <RootStackNavigator />

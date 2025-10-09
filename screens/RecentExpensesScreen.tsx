@@ -8,5 +8,11 @@ export const RecentExpensesScreen = () => {
     const dateMinus7Days = getDateMinusDays(new Date(), 7);
     return expense.date > dateMinus7Days;
   });
-  return <ExpensesOutput expensesPeriod="Last 7 days" expenses={recentExpenses} />;
+  return (
+    <ExpensesOutput
+      expensesPeriod="Last 7 days"
+      expenses={recentExpenses}
+      fallbackText="No expenses registered for the last 7 days."
+    />
+  );
 };
